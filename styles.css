@@ -1,0 +1,185 @@
+/* Default styles for all devices (Mobile First approach) */
+.container { width: 100%; }
+
+/* Styles only applied when screen is wider than 600px */
+@media (min-width: 1100px) {
+    .container { width: 95%; max-width: 2000px; }
+    /* Switch from a single column to two columns for the form */
+     #dataForm { display: flex; gap: 22px;
+        flex-wrap: wrap; }  
+      
+}
+:root {
+    /* Define Color Palette */
+    --primary-color: #007BFF; /* A nice blue */
+    --accent-color: #28a745; /* Green for success/accent */
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --border-color: #ddd;
+}
+
+/* 1. Global Reset & Typography */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+/* 2. Layout & Form Styling */
+.container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto; /* Center the entire page content */
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#dataForm {
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 30px;
+}
+
+/* Styling for all inputs and textareas */
+input[type="text"],
+input[type="text"],
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+
+textarea {
+
+    width: 120px;
+    padding: 10px;
+    margin: 8px 0 16px 0; /* Add margin below the input */
+    display: inline-block;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding/border don't change the overall width */
+}
+select {
+    width: 160px;
+    padding: 10px;
+    margin: 8px 0 16px 0; /* Add margin below the select */
+    display: inline-block;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding/border don't change the overall width */
+}
+
+/* 3. Button Styling */
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth color change */
+}
+
+button:hover {
+    background-color: #0056b3; /* Slightly darker on hover */
+}
+
+/* 3.5 Search Bar Styling */
+.search-container {
+    position: static; /* default: in normal flow to avoid overflow */
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+#searchInput {
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    width: 250px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* On small screens keep search controls in the normal flow so they don't overflow the container */
+@media (max-width: 600px) {
+    .search-container {
+        position: static;
+        margin-bottom: 12px;
+        justify-content: flex-end;
+        width: 100%;
+    }
+    #searchInput { width: 100%; }
+    .search-container button { white-space: nowrap; }
+}
+
+/* On large screens position search controls at top-right inside the container */
+@media (min-width: 1100px) {
+    .search-container {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: auto;
+    }
+    #searchInput { width: 250px; }
+}
+
+/* 4. Table Styling */
+#recordsTable {
+    width: 100%;
+    border-collapse: collapse; /* Removes double borders */
+    margin-top: 20px;
+}
+
+#recordsTable th, 
+#recordsTable td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+#recordsTable th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Make action buttons look distinct in the table */
+#recordsTable button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: var(--accent-color);
+}
+
+/* Modal (message) styles */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); }
+.modal[aria-hidden="false"] { display: block; }
+.modal-content { background-color: #fff; margin: 8% auto; padding: 20px; border-radius: 6px; width: 90%; max-width: 480px; box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+.modal-content .close { float: right; background: transparent; border: none; font-size: 22px; cursor: pointer; }
+.modal-content textarea { width: 100%; box-sizing: border-box; padding: 10px; margin: 10px 0; }
+.modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
+.modal-actions button { padding: 8px 10px; font-size: 14px; }
+#deleteSelectedBtn{
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth color change */
+}

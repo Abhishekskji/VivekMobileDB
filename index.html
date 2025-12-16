@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Vivek Mobile Accessories</title>
+</head>
+<body>
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search by Name or ID...">
+            <button id="deleteSelectedBtn" title="Delete selected records">Delete Selected</button>
+        </div>
+    <h1>Vivek nobile Accessories</h1>
+    <form id="dataForm" onsubmit="validateForm()">
+        <input type="hidden" id="recordId" value=""> 
+        <label for ="date">Date:</label>
+        <input type="date" id="date" required><br><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" requireds><br><br>
+        <label for="mobile">Mob No:</label>
+        <input type="text"  id="mobile"  ><br><br>
+        <label for="address">Address:</label>
+        <textarea id="address" rows="2" cols="30" required></textarea><br><br>
+        <label for="model">Model:</label>
+        <input type="text" id="model" required><br><br>
+        <label for="problem" >Problem: <select name="problem" id="problem">
+            <option value="Screen Damage">Screen Damage</option>
+            <option value="Battery Issue">Battery Issue</option>
+            <option value="Software Issue">Software Issue</option>
+            <option value="Water Damage">Water Damage</option>
+            <option value="Speaker/Mic Issue">Speaker/Mic Issue</option>
+            <option value="Charging Issue">Charging Issue</option>
+            <option value="Camera Issue">Camera Issue</option>
+            <option value="Button Issue">Button Issue</option>
+            <option value="Network Issue">Network Issue</option>
+            <option value="Ic Issue">Ic Issue </option>
+            <option value="Other">Other </option>
+        </select> </label><br><br>
+        <label for="ammount">Ammount:</label>
+        <input type="tel" id="ammount" required><br><br> 
+        <label for="status">Status:<select name="status" id="status">
+            <option value="Underprocessing">Underprocessing</option>
+            <option value="Completed">Completed</option>
+            <option value="Returned">Returned</option>
+            <option value="Rejected">Rejected</option>
+        </select></label><br><br>
+        <label for="returnDate">Return Date:</label>
+        <input type="date" id="rdate"><br><br>
+        <button type="submit" id="submitBtn">Save Record</button>
+    </form>
+
+    <hr>
+
+    <h2>Stored Records</h2>
+    <table id="recordsTable" border="1">
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="selectAll"></th>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Mob No.</th>
+                <th>Address </th>
+                <th>Model</th>
+                <th>Problem</th>
+                <th>Ammount</th> 
+                <th>Status</th>
+                <th>Return Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+
+    <script src="vm.js"></script>
+    <!-- Message modal -->
+    <div id="messageModal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <button id="closeModal" class="close" aria-label="Close">×</button>
+            <h3>Send Message</h3>
+            <textarea id="messageText" rows="6"></textarea>
+            <div class="modal-actions">
+                <button id="copyMessageBtn">Copy</button>
+                <button id="whatsappBtn">Open WhatsApp</button>
+                <button id="smsBtn">Open SMS</button>
+            </div>
+        </div>
+    </div>
+     
+    </div>
+</body>
+</html>
